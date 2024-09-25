@@ -42,6 +42,7 @@ class PMConstants {
   static const String mSystemVersion = 'systemVersion';
   static const String mGetLatLngAndroidQ = 'getLatLngAndroidQ';
   static const String mGetTitleAsync = 'getTitleAsync';
+  static const String mGetFileSize = 'getFileSize';
   static const String mGetMimeTypeAsync = 'getMimeTypeAsync';
   static const String mGetMediaUrl = 'getMediaUrl';
   static const String mGetSubPath = 'getSubPath';

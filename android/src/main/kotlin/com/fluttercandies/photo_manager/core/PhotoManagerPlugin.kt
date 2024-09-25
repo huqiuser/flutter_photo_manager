@@ -413,6 +413,11 @@ class PhotoManagerPlugin(
                 photoManager.assetExists(id, resultHandler)
             }
 
+            Methods.getFileSize -> {
+                val id = call.argument<String>("id")!!
+                photoManager.getFileSize(id, resultHandler)
+            }
+
             Methods.getFullFile -> {
                 val id = call.argument<String>("id")!!
                 val isOrigin =

@@ -488,6 +488,11 @@ class PhotoManagerPlugin with BasePlugin, IosPlugin, AndroidPlugin, OhosPlugin {
     return entity.title ?? '';
   }
 
+  Future<int?> getFileSize(AssetEntity entity) {
+    final params = <String, dynamic>{'id': entity.id};
+    return _channel.invokeMethod<int>(PMConstants.mGetFileSize, params);
+  }
+
   Future<String?> getMediaUrl(
     AssetEntity entity, {
     PMProgressHandler? progressHandler,

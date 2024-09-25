@@ -417,6 +417,8 @@ class AssetEntity {
   ///  {@endtemplate}
   Future<String> get titleAsync => plugin.getTitleAsync(this);
 
+  Future<int?> get fileSize => plugin.getFileSize(this);
+
   /// {@macro photo_manager.AssetEntity.titleAsync}
   Future<String> get titleAsyncWithSubtype =>
       plugin.getTitleAsync(this, subtype: subtype);

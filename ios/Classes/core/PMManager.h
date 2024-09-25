@@ -79,6 +79,8 @@ typedef void (^AssetBlockResult)(PMAssetEntity *, NSObject *);
 
 - (NSString*)getTitleAsyncWithAssetId:(NSString *)assetId subtype:(int)subtype;
 
+- (NSNumber *)getFileSizeAsyncWithAssetId:(NSString *)asset;
+
 - (NSString*)getMimeTypeAsyncWithAssetId: (NSString *) assetId;
 
 - (void)getMediaUrl:(NSString *)assetId resultHandler:(NSObject <PMResultHandler> *)handler progressHandler:(NSObject <PMProgressHandlerProtocol> *)progressHandler;

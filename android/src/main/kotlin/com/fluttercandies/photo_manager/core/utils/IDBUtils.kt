@@ -22,6 +22,7 @@ import android.provider.MediaStore.MediaColumns.HEIGHT
 import android.provider.MediaStore.MediaColumns.MIME_TYPE
 import android.provider.MediaStore.MediaColumns.ORIENTATION
 import android.provider.MediaStore.MediaColumns.RELATIVE_PATH
+import android.provider.MediaStore.MediaColumns.SIZE
 import android.provider.MediaStore.MediaColumns.TITLE
 import android.provider.MediaStore.MediaColumns.WIDTH
 import android.provider.MediaStore.MediaColumns._ID
@@ -501,6 +502,20 @@ interface IDBUtils {
             }
             return it.count >= 1
         }
+    }
+
+    fun getFileSize(context: Context, id: String): Long {
+        val columns = arrayOf(_ID, SIZE)
+        val cursor = context.contentResolver.logQuery(allUri, columns, "$_ID = ?",
+            arrayOf(id), null)
+
+        cursor?.use {
+            if (it.moveToNext()) {
+                return it.getLong(SIZE)
+            }
+        }
+
+        return -1
     }
 
     fun getExif(context: Context, id: String): ExifInterface?

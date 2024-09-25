@@ -67,6 +67,7 @@ class Methods {
         const val requestCacheAssetsThumbnail = "requestCacheAssetsThumb"
         const val cancelCacheRequests = "cancelCacheRequests"
         const val assetExists = "assetExists"
+        const val getFileSize = "getFileSize"
         const val getFullFile = "getFullFile"
         const val getOriginBytes = "getOriginBytes"
         const val getMediaUrl = "getMediaUrl"

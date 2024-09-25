@@ -520,6 +520,10 @@
         int subtype = [call.arguments[@"subtype"] intValue];
         NSString *title = [manager getTitleAsyncWithAssetId:assetId subtype:subtype];
         [handler reply:title];
+    } else if ([@"getFileSize" isEqualToString:call.method]) {
+        NSString *assetId = call.arguments[@"id"];
+        NSNumber *fileSize = [manager getFileSizeAsyncWithAssetId:assetId];
+        [handler reply:fileSize];
     } else if ([call.method isEqualToString:@"getMimeTypeAsync"]) {
         NSString *assetId = call.arguments[@"id"];
         NSString *mimeType = [manager getMimeTypeAsyncWithAssetId:assetId];

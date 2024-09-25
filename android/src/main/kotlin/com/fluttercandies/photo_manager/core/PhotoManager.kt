@@ -201,6 +201,11 @@ class PhotoManager(private val context: Context) {
         resultHandler.reply(exists)
     }
 
+    fun getFileSize(id: String, resultHandler: ResultHandler) {
+        val exists: Long = dbUtils.getFileSize(context, id)
+        resultHandler.reply(exists)
+    }
+
     fun getLocation(id: String): Map<String, Double> {
         val exifInfo = dbUtils.getExif(context, id)
         val latLong = exifInfo?.latLong

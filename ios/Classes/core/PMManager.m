@@ -1098,6 +1098,15 @@
     return @"";
 }
 
+- (NSNumber *)getFileSizeAsyncWithAssetId:(NSString *)assetId {
+    PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:nil].firstObject;
+    if (asset) {
+        NSArray<PHAssetResource *> *res = [PHAssetResource assetResourcesForAsset:asset];
+        return [res.firstObject valueForKey:@"fileSize"];
+    }
+    return nil;
+}
+
 - (NSString *)getMimeTypeAsyncWithAssetId:(NSString *)assetId {
     PHFetchResult *fetchResult = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:nil];
     PHAsset *asset = [self getFirstObjFromFetchResult:fetchResult];
