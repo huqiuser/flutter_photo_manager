@@ -451,6 +451,8 @@
                     resultHandler:^(PMImage *result, NSDictionary *info) {
         BOOL downloadFinished = [PMManager isDownloadFinish:info];
         if (!downloadFinished) {
+            [handler replyError:[NSString stringWithFormat:@"Asset %@ is not downloadFinished", asset.localIdentifier]];
+            [self notifyProgress:progressHandler progress:lastProgress state:PMProgressStateFailed];
             return;
         }
         
